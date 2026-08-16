@@ -130,6 +130,21 @@ For when a codebase has accumulated ten arbitrary values doing the work of
 three, and you want the replacement to be reviewable rather than a find-and-
 replace you have to trust.
 
+## Tests
+
+```bash
+npm test        # or: node test/run.js
+```
+
+Zero dependencies here too — plain `assert`, exiting non-zero on failure.
+
+The suite exists because of two bugs found by hand during development, **both of
+which produced code that still compiled**: a whitespace tidy that rewrote
+`${dark ? "a>b" : "c"}` into `${dark ?"a>b":"c"}`, and a missing word boundary
+that turned `"font-bolder"` into `"er"`. Neither would fail a typecheck, so
+neither would have been caught by anything except looking. They are pinned as
+regression tests now.
+
 ## Conventions
 
 - Every script **dry-runs by default**; writing requires `--apply`.

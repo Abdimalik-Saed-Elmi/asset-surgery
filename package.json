@@ -5,13 +5,25 @@
   "license": "MIT",
   "author": "Abdimalik Saed Elmi",
   "type": "commonjs",
-  "engines": { "node": ">=16" },
-  "keywords": ["mp4", "remux", "faststart", "codemod", "jsx", "wcag", "contrast", "zero-dependency"],
+  "engines": {
+    "node": ">=16"
+  },
+  "keywords": [
+    "mp4",
+    "remux",
+    "faststart",
+    "codemod",
+    "jsx",
+    "wcag",
+    "contrast",
+    "zero-dependency"
+  ],
   "scripts": {
     "probe": "node mp4/probe.js",
     "track-sizes": "node mp4/track-sizes.js",
     "strip-audio": "node mp4/strip-audio.js",
     "verify": "node mp4/verify-video-identical.js",
-    "contrast": "node css/contrast.js"
+    "contrast": "node css/contrast.js",
+    "test": "node test/run.js"
   }
 }

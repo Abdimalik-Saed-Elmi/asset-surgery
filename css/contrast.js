@@ -63,6 +63,13 @@ function report(fg, bg, label) {
   return v;
 }
 
+/* Only run the CLI when invoked directly. Without this guard, `require()`ing
+   this file for its luminance/ratio helpers also executes the argument parsing
+   and exits — which is exactly what happened the first time the tests imported
+   it. */
+if (require.main === module) main();
+
+function main() {
 const args = process.argv.slice(2);
 
 try {
@@ -91,6 +98,7 @@ try {
 } catch (err) {
   console.error(err.message);
   process.exit(1);
+}
 }
 
 module.exports = { luminance, ratio, verdict };
